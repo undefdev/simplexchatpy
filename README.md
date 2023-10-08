@@ -1,7 +1,6 @@
-
 # SimpleX Chat Protocol Library (Sketch)
 
-This library provides a preliminary Python implementation of the SimpleX Chat Protocol, designed for experimentation and learning. The goal is to offer developers an easy-to-read and interactive framework to understand the protocol's mechanics.
+This library provides a preliminary Python implementation of the [SimpleX Chat Protocol](https://github.com/simplex-chat/simplex-chat/blob/stable/docs/protocol/simplex-chat.md), designed for experimentation and learning. The goal is to offer developers an easy-to-read and interactive framework to understand the protocol's mechanics.
 
 ## Project Goal
 
@@ -50,3 +49,8 @@ print(received_message)
 ```
 
 Please note that this is a mock implementation and doesn't send/receive messages over a network.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
