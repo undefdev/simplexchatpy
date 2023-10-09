@@ -31,6 +31,15 @@ class TestUtils(unittest.TestCase):
         with self.assertRaises(DecodingError):
             decode_message("invalid json")
 
+    def test_message_container_exclusivity(self):
+        with self.assertRaises(ValueError):
+            # Creating a MessageContainer with both `quote` and `forward` should raise a ValueError.
+            MessageContainer(
+                content=MessageContent(type="text", content="test"),
+                quote="quoted_message_id",
+                forward=True
+            )
+
 if __name__ == "__main__":
     unittest.main()
 

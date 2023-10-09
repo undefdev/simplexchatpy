@@ -19,3 +19,6 @@ class MessageContainer:
     quote: str = None  # placeholder for quotes
     forward: bool = False  # placeholder for forward flag
 
+    def __post_init__(self):
+        if self.quote and self.forward:
+            raise ValueError("A message cannot have both a quote and a forward flag.")
