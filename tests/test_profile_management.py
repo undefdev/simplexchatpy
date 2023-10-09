@@ -48,5 +48,19 @@ class TestSimplexChatProfileManagement(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.chat.validate_display_name("Invalid Name")
 
+    def test_profile_image_set_and_change(self):
+        image1 = "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoBAAEAAQAcJaACdLoB+AAETAAA/vW4f/6aR40jxpHxcP/ugT90CfugT/3NoAAA"
+        image2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+
+        # Create a profile with the first image
+        self.chat.set_profile(display_name="TestUser", full_name="Test User", image=image1)
+        profile = self.chat.get_profile()
+        self.assertEqual(profile.image, image1, "Failed to set initial profile image.")
+
+        # Update the profile image to the second image
+        self.chat.update_profile(image=image2)
+        profile = self.chat.get_profile() # we need to get this again
+        self.assertEqual(profile.image, image2, "Failed to update profile image.")
+
 if __name__ == "__main__":
     unittest.main()

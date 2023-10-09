@@ -1,10 +1,11 @@
 from dataclasses import dataclass
+from dataURI import DataURI
 
 @dataclass
 class Profile:
     displayName: str   # non-empty string without spaces, must not start with # or @ 
     fullName: str      # suprisingly not optional
-    image: str = None  # optional field, should be in data URI format for a base64 encoded image
+    image: DataURI = None  # optional field
 
 @dataclass
 class MessageContent:
